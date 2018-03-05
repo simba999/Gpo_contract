@@ -1,7 +1,7 @@
 pragma solidity ^0.4.17;
 
 contract GpoProdContracts {
-    address public owner;
+    address public owner;                   // address for indicating this contract
 
     string gpo_id;                          // GPO ID
     string sup_id;                          // Supplier
