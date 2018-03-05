@@ -1,7 +1,7 @@
 pragma solidity ^0.4.17;
 
 contract TierPricing {
-    address public owner;
+    address public owner;                   // address for indicating this contract
 
     // struct Dict {
     //     string objectName;
@@ -40,7 +40,7 @@ contract TierPricing {
         uint _reward_amt,
         uint _reward_cur,
         uint _reward_pct,
-        string _iter_distr_pct,
+        string _tier_distr_pct,
         string _smart_contract_id,
         string _smart_contract_date,
         string _tier_desc
@@ -55,10 +55,23 @@ contract TierPricing {
         reward_amt = _reward_amt;
         reward_cur = _reward_cur;
         reward_pct = _reward_pct;
-        iter_distr_pct = _iter_distr_pct;
+        tier_distr_pct = _tier_distr_pct;
         smart_contract_id = _smart_contract_id;
         smart_contract_date = _smart_contract_date;
         tier_desc = _tier_desc;
+    }
+
+    // get information to calculate reward
+    function getTierInformation() public view returns (
+        uint _min_qtr, 
+        uint _min_amt, 
+        uint _reward_cur,
+        uint _reward_pct
+    ) {
+        _min_qtr = min_qty;
+        _min_amt = min_amt;
+        _reward_cur = reward_cur;
+        _reward_pct = reward_pct;
     }
 
     // function setStruct(string _objectName,string _obj_type, string _obj_key) public onlyOwner {

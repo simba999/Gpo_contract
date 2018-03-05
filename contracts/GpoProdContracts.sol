@@ -1,5 +1,8 @@
 pragma solidity ^0.4.17;
 
+import * as GpoContract from "./GpoContract.sol";
+import * as TierPricing from "./TierPricing.sol";
+
 contract GpoProdContracts {
     address public owner;                   // address for indicating this contract
 
@@ -23,10 +26,6 @@ contract GpoProdContracts {
     int p_sh_amt;                           // Shipping & Handling Amount
     int p_sh_pct;                           // Shipping & Handling Percent
     string comments;                        // comments
-    string created_by;                      // Created by user id
-    uint created_on;                        // Created on datetime
-    string updated_by;                      // Updated by user id
-    uint updated_on;                        // Updated by datetime
     string void_by;                         // Voided by user id
     uint void_on;                           // Voided by datetime
     address contracted_list;                // Contracted providers list
@@ -37,18 +36,13 @@ contract GpoProdContracts {
         _;
     }
 
-    function GpoProdContracts() public
-    {
+    function GpoProdContracts() public {
         owner = msg.sender;
     }
 
     function setContractDetail(
         string _gpo_id,
         string _sup_id,
-        string _created_by,
-        uint _created_on,
-        string _updated_by,
-        uint _updated_on,
         string _void_by,
         uint _void_on
     )
@@ -56,10 +50,6 @@ contract GpoProdContracts {
     {
         gpo_id = _gpo_id;
         sup_id = _sup_id;
-        created_by = _created_by;
-        created_on = _created_on;
-        updated_by = _updated_by;
-        updated_on = _updated_on;
         void_by = _void_by;
         void_on = _void_on;
     }
@@ -110,16 +100,18 @@ contract GpoProdContracts {
         p_sh_pct = _p_sh_pct;
     }
 
+    // get contracted_list property
     function setContractedList(address _contracted_list) public {
         contracted_list = _contracted_list;
     }
 
+    // get prod_tier_rewards
     function setProdTierRewards(address _prod_tier_rewards) public {
         prod_tier_rewards = _prod_tier_rewards;
     }
 
+    //get comments
     function setComments(string _comments) public {
         comments = _comments;
     }
-
 }

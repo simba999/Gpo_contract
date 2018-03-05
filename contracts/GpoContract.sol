@@ -24,6 +24,7 @@ contract GpoContract {
         owner = msg.sender;
     }
 
+    // setter to initialize GPO contract
     function setGpoContract(
         string _gpo_id,
         string _sup_id,
@@ -34,8 +35,8 @@ contract GpoContract {
         string _comments,
         string _created_by,
         uint _created_on,
-        string _changed_by,
-        uint _changed_on
+        string _updated_by,
+        uint _updated_on
     )
         public
     {
@@ -48,8 +49,35 @@ contract GpoContract {
         comments = _comments;
         created_by = _created_by;
         created_on = _created_on;
-        changed_by = _changed_by;
-        changed_on = _changed_on;
+        updated_by = _updated_by;
+        updated_on = _updated_on;
+    }
+
+    // getter of GpoContract
+    function getGpoContract() public view returns (
+        string _gpo_id,
+        string _sup_id,
+        string _contract_code,
+        string _active_from,
+        string _active_to,
+        string _status,
+        string _comments,
+        string _created_by,
+        uint _created_on,
+        string _updated_by,
+        uint _updated_on
+    ) {
+        _gpo_id = gpo_id;
+        _sup_id = sup_id;
+        _contract_code = contract_code;
+        _active_from = active_from;
+        _active_to = active_to;
+        _status = status;
+        _comments = comments;
+        _created_by = created_by;
+        _created_on = created_on;
+        _updated_by = updated_by;
+        _updated_on = updated_on;
     }
 
 }
