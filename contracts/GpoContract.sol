@@ -3,17 +3,17 @@ pragma solidity ^0.4.17;
 contract GpoContract {
     address public owner;
 
-    string public gpo_id;
-    string public sup_id;
-    string public contract_code;
-    string public active_from;
-    string public active_to;
-    string public status;
-    string public comments;
-    string public created_by;
-    uint public created_on;
-    string public changed_by;
-    uint public changed_on;
+    string public gpo_id;                   // GPO ID
+    string public sup_id;                   // Supplier ID
+    string public contract_code;            // GPO Contract Code with a Supplier
+    string public active_from;              // Contract is active from
+    string public active_to;                // Contract is active to
+    string public status;                   // Current status (A = Active,V = Void)
+    string public comments;                 // Comments
+    string created_by;                      // Created by user id
+    uint created_on;                        // Created on datetime
+    string updated_by;                      // Updated by user id
+    uint updated_on;                        // Updated by datetime
 
     modifier onlyOwner() {
         require(msg.sender == owner);

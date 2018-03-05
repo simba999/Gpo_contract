@@ -3,34 +3,34 @@ pragma solidity ^0.4.17;
 contract GpoProdContracts {
     address public owner;
 
-    string gpo_id;
-    string sup_id;
-    string p_id;
-    string p_code;
-    string p_sup_item;
-    string p_ndc;
-    string item_title;
-    string gtin_code;
-    string prod_cond;
-    string brand_name;
-    string unspsc_code;
-    string class_cat_code;
-    string name_of_mfr;
-    string contract_id;
-    int contract_pr;
-    int ptt_code;
-    string p_cur_code;
-    int p_sh_amt;
-    int p_sh_pct;
-    string comments;
-    string created_by;
-    uint created_on;
-    string updated_by;
-    uint updated_on;
-    string void_by;
-    uint void_on;
-    address contracted_list;
-    address prod_tier_rewards;
+    string gpo_id;                          // GPO ID
+    string sup_id;                          // Supplier
+    string p_id;                            // Product ID
+    string p_code;                          // Product Code
+    string p_sup_item;                      //  #Supplier Catalog Item number (supplier's internal material number)
+    string p_ndc;                           // #ndc_code
+    string item_title;                      // Product Item name
+    string gtin_code;                       // (globalTradeItemNumber) GTIN (Numeric 14 characters)
+    string prod_cond;                       // Product condition (New / Used / Refurbished)
+    string brand_name;                      // Brand Name
+    string unspsc_code;                     // UNSPSC code
+    string class_cat_code;                  // Global Product Classification Code
+    string name_of_mfr;                     // Manufacturer Name (Part 1)
+    string contract_id;                     // GPO Contract ID
+    int contract_pr;                        // Contracted providers list
+    int ptt_code;                           // Payment Terms Type Code: UD=Upon Delivery, UI=Upon Invoice, COD=Cash on delivery
+    string p_cur_code;                      // Currency code
+    int p_sh_amt;                           // Shipping & Handling Amount
+    int p_sh_pct;                           // Shipping & Handling Percent
+    string comments;                        // comments
+    string created_by;                      // Created by user id
+    uint created_on;                        // Created on datetime
+    string updated_by;                      // Updated by user id
+    uint updated_on;                        // Updated by datetime
+    string void_by;                         // Voided by user id
+    uint void_on;                           // Voided by datetime
+    address contracted_list;                // Contracted providers list
+    address prod_tier_rewards;              // Tiered based rewards 
 
     modifier onlyOwner() {
         require(msg.sender == owner);

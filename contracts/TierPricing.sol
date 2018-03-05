@@ -3,24 +3,24 @@ pragma solidity ^0.4.17;
 contract TierPricing {
     address public owner;
 
-    struct Dict {
-        string objectName;
-        string obj_type;
-        string obj_key;
-    }
+    // struct Dict {
+    //     string objectName;
+    //     string obj_type;
+    //     string obj_key;
+    // }
 
-    string tier_id;
-    uint tier_start_dt;
-    uint tier_end_dt;
-    uint min_qty;
-    uint min_amt;
-    uint reward_amt;
-    uint reward_cur;
-    uint reward_pct;
-    string iter_distr_pct;
-    string smart_contract_id;
-    string smart_contract_date;
-    string tier_desc;
+    string tier_id;                         // Tier code
+    uint tier_start_dt;                     // Start of the tier
+    uint tier_end_dt;                       // End of the tier
+    uint min_qty;                           // Minimum Quantity
+    uint min_amt;                           // Minimum purchase amount
+    uint reward_amt;                        // Amount of reward (fixed amount USD)
+    uint reward_cur;                        // Reward currency code
+    uint reward_pct;                        // Percentage of the reward (Percentage of the total sales)
+    string tier_distr_pct;                  // Distribution percentages to each party (Key: Entity_id (GPO/SUP/HOSP), Value: Percentage).  
+    string smart_contract_id;               // Ethereum smart contract ID
+    string smart_contract_date;             // Ethereum smart contract generated on date
+    string tier_desc;                       // Tier information/comments
 
     modifier onlyOwner() {
         require(msg.sender == owner);
