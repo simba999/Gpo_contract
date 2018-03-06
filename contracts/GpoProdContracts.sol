@@ -1,7 +1,7 @@
 pragma solidity ^0.4.17;
 
 import * as GpoContract from "./GpoContract.sol";
-import * as TierPricing from "./TierPricing.sol";
+import * as T from "./TierPricing.sol";
 
 contract GpoProdContracts {
     address public owner;                   // address for indicating this contract
@@ -116,10 +116,10 @@ contract GpoProdContracts {
     }
     
     // get calculation of rewards
-    function calculateRewards(address addr) public view returns (unit sum) {
-        TierPricing tier = TierPricing(addr);
+    function calculateRewards(address addr) public view returns (uint sum) {
+        T.TierPricing tier = T.TierPricing(addr);
         
-        uint reward = tier.getTierInformation().reward_amt + tier.getTierInformation() * tier.getTierInformation();
+        T.TierPricing reward = tier.getTierInformation().reward_amt + tier.getTierInformation() * tier.getTierInformation();
         return reward;
     }
 }
