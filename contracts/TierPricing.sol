@@ -63,12 +63,12 @@ contract TierPricing {
 
     // get information to calculate reward
     function getTierInformation() public view returns (
-        uint _min_qtr, 
+        uint _min_qty, 
         uint _min_amt, 
         uint _reward_cur,
         uint _reward_pct
     ) {
-        _min_qtr = min_qty;
+        _min_qty = min_qty;
         _min_amt = min_amt;
         _reward_cur = reward_cur;
         _reward_pct = reward_pct;

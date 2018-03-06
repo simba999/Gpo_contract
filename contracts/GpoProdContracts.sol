@@ -114,4 +114,12 @@ contract GpoProdContracts {
     function setComments(string _comments) public {
         comments = _comments;
     }
+    
+    // get calculation of rewards
+    function calculateRewards(address addr) public view returns (unit sum) {
+        TierPricing tier = TierPricing(addr);
+        
+        uint reward = tier.getTierInformation().reward_amt + tier.getTierInformation() * tier.getTierInformation();
+        return reward;
+    }
 }
